@@ -7,37 +7,37 @@ import prettier from 'eslint-config-prettier'
 import eslintPluginPrettier from 'eslint-plugin-prettier' // Importar la configuración de Prettier
 
 export default tseslint.config(
-	{ ignores: ['dist'] },
-	{
-		extends: [
-			js.configs.recommended,
-			...tseslint.configs.recommended,
-			prettier,
-		],
-		files: ['**/*.{ts,tsx}'],
-		languageOptions: {
-			ecmaVersion: 2020,
-			globals: globals.browser,
-		},
-		plugins: {
-			'react-hooks': reactHooks,
-			'react-refresh': reactRefresh,
-      'prettier': eslintPluginPrettier, // Agregar el plugin de Prettier
-		},
-		rules: {
-			...reactHooks.configs.recommended.rules,
-			'react-refresh/only-export-components': [
-				'warn',
-				{ allowConstantExport: true },
-			],
-			'prettier/prettier': [
-				'error',
-				{
-					singleQuote: true,
-					trailingComma: 'all',
-				},
-			],
-		},
-	}
+  { ignores: ['dist'] },
+  {
+    extends: [
+      js.configs.recommended,
+      ...tseslint.configs.recommended,
+      prettier,
+    ],
+    files: ['**/*.{ts,tsx}'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+    plugins: {
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      prettier: eslintPluginPrettier, // Agregar el plugin de Prettier
+    },
+    rules: {
+      ...reactHooks.configs.recommended.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      'prettier/prettier': [
+        'warn',
+        {
+          singleQuote: true,
+          trailingComma: 'all',
+          endOfLine: 'auto',
+        },
+      ],
+    },
+  },
 )
-
